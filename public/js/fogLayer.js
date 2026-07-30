@@ -201,7 +201,7 @@ export class FogLayer extends FogLayerBase {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, size.x, size.y);
     ctx.imageSmoothingEnabled = false;
-    ctx.filter = this.peeking ? "blur(100px)" : "none";
+    ctx.filter = this.peeking ? "blur(0px)" : "none";
     ctx.globalAlpha = this.peeking ? 0.8 : 1.0;
     ctx.globalCompositeOperation = "source-over";
 
