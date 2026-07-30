@@ -5,12 +5,13 @@
 // editor (state stored as pin.state = "opened" | "unopened").
 
 export const PIN_TYPES = [
-  { id: "chest", label: "Chest", glyph: "🧰", toggleable: true, stateLabel: "Opened" },
-  { id: "save-point", label: "Save Point", glyph: "🕯️", toggleable: false },
-  { id: "sidearm", label: "Sidearm", glyph: "🗡️", toggleable: true, stateLabel: "Collected" },
-  { id: "item", label: "Item", glyph: "💎", toggleable: true, stateLabel: "Collected" },
-  { id: "enemy", label: "Notable Foe", glyph: "💀", toggleable: false },
-  { id: "note", label: "Note", glyph: "📝", toggleable: false },
+  { id: "save-point", label: "Save Point", glyph: "💾", toggleable: false },
+  { id: "chest", label: "Chest", glyph: "💰", toggleable: true, stateLabel: "Opened" },
+  { id: "shop", label: "Shop", glyph: "🏪", toggleable: true, stateLabel: "Bought" },
+  { id: "sidearm", label: "Sidearm", glyph: "🗡️", toggleable: false },
+  { id: "kear", label: "Kear", glyph: "🗝️", toggleable: true, stateLabel: "Found" },
+  { id: "lock", label: "Lock", glyph: "🔒", toggleable: true, stateLabel: "Opened" },
+  { id: "note", label: "Note", glyph: "📝", toggleable: true, stateLabel: "Completed" },
 ];
 
 export function getPinType(id) {

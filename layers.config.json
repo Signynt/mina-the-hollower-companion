@@ -4,8 +4,8 @@
   "sourceHeight": 17210,
   "fogGridResolution": 1000,
   "layers": [
-    { "id": "layer-01", "label": "House Interiors",  "file": "mina_map_interiors.png" },
-    { "id": "layer-02", "label": "Overworld",        "file": "mina_map_base.png" },
+    { "id": "layer-01", "label": "Overworld",        "file": "mina_map_base.png" },
+    { "id": "layer-02", "label": "House Interiors",  "file": "mina_map_interiors.png" },
     { "id": "layer-03", "label": "Underground",      "file": "mina_map_lower.png" },
     { "id": "layer-04", "label": "Dungeon 1",        "file": "mina_map_b1.png" },
     { "id": "layer-05", "label": "Dungeon 2",        "file": "mina_map_b2.png" },
