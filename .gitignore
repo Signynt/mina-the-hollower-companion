@@ -1,0 +1,7 @@
+node_modules/
+data/save.json
+logs/*.log
+public/tiles/*/
+map_images/*.png
+__pycache__/
+.DS_Store

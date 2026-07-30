@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mina the Hollower — Companion Map</title>
+
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Top toolbar -->
+  <header id="toolbar">
+    <button id="toggle-left-sidebar" class="icon-btn" title="Toggle floor & filter panel">☰</button>
+    <h1 class="wordmark">MINA <span>the Hollower</span></h1>
+    <div id="floor-quickswitch"></div>
+    <div class="toolbar-spacer"></div>
+    <div id="save-status" class="save-status" title="Autosave status">Loading…</div>
+    <button id="toggle-right-sidebar" class="icon-btn" title="Toggle notes directory">✎</button>
+  </header>
+
+  <div id="body-row">
+
+    <!-- Left sidebar: floors + filters -->
+    <aside id="left-sidebar" class="sidebar">
+      <section class="panel">
+        <h2>Floor</h2>
+        <div id="floor-list" class="floor-list"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Marker Filters</h2>
+        <div id="pin-filters" class="filter-list"></div>
+        <label class="filter-row toggle-row">
+          <input type="checkbox" id="filter-hide-opened" />
+          <span>Hide opened / completed</span>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Fog Tool</h2>
+        <label class="filter-row">
+          <span>Brush size</span>
+          <input type="range" id="brush-size" min="20" max="220" value="70" />
+        </label>
+        <p class="hint">Right-drag to reveal &middot; Shift+right-drag to re-fog &middot; Hold F to peek</p>
+      </section>
+
+      <section class="panel">
+        <h2>Data</h2>
+        <div class="button-row">
+          <button id="btn-export" class="btn">Export JSON</button>
+          <button id="btn-import" class="btn">Import JSON</button>
+          <button id="btn-reset" class="btn btn-danger" title="Clear all saved fog, pins, and notes">Reset All</button>
+        </div>
+        <input type="file" id="import-file-input" accept="application/json" hidden />
+      </section>
+    </aside>
+
+    <!-- Map -->
+    <main id="map-wrap">
+      <div id="map"></div>
+      <div id="pin-type-menu" class="floating-menu" hidden></div>
+      <div id="pin-editor" class="floating-menu pin-editor" hidden>
+        <input type="text" id="pin-editor-title" placeholder="Title" maxlength="60" />
+        <textarea id="pin-editor-note" placeholder="Notes (optional)" rows="4"></textarea>
+        <div class="pin-editor-row">
+          <label class="filter-row toggle-row" id="pin-editor-state-row" hidden>
+            <input type="checkbox" id="pin-editor-state" />
+            <span id="pin-editor-state-label">Opened</span>
+          </label>
+        </div>
+        <div class="pin-editor-actions">
+          <button id="pin-editor-delete" class="btn btn-danger">Delete</button>
+          <div class="toolbar-spacer"></div>
+          <button id="pin-editor-cancel" class="btn">Cancel</button>
+          <button id="pin-editor-save" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right sidebar: notes directory -->
+    <aside id="right-sidebar" class="sidebar">
+      <section class="panel">
+        <h2>Notes &amp; Markers</h2>
+        <input type="text" id="note-search" placeholder="Search notes and pins…" class="search-input" />
+        <div id="notes-list" class="notes-list"></div>
+      </section>
+    </aside>
+
+  </div>
+</div>
+
+<div id="toast-stack"></div>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script>
+  // Fail loudly and visibly if Leaflet somehow didn't load, instead of a
+  // silent black map + stuck "Loading…" indicator that's hard to diagnose.
+  if (typeof L === "undefined") {
+    document.getElementById("save-status").textContent = "Leaflet failed to load — check console";
+    document.getElementById("save-status").className = "save-status error";
+    console.error("[Mina Map] Leaflet (public/vendor/leaflet/leaflet.js) did not load. " +
+      "Check that public/vendor/leaflet/ exists and the server is serving static files correctly.");
+  }
+</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

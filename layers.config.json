@@ -1,0 +1,17 @@
+{
+  "_comment": "Edit 'file' to match the actual filenames in map_images/. Edit 'label' to whatever you want shown in the floor switcher. Order here = order in the UI. Do not change 'id' once you have saved progress, since pins/fog are stored keyed by id.",
+  "sourceWidth": 18367,
+  "sourceHeight": 17210,
+  "fogGridResolution": 1000,
+  "layers": [
+    { "id": "layer-01", "label": "House Interiors",  "file": "mina_map_interiors.png" },
+    { "id": "layer-02", "label": "Overworld",        "file": "mina_map_base.png" },
+    { "id": "layer-03", "label": "Underground",      "file": "mina_map_lower.png" },
+    { "id": "layer-04", "label": "Dungeon 1",        "file": "mina_map_b1.png" },
+    { "id": "layer-05", "label": "Dungeon 2",        "file": "mina_map_b2.png" },
+    { "id": "layer-06", "label": "Dungeon 3",        "file": "mina_map_b3.png" },
+    { "id": "layer-07", "label": "Dungeon 4",        "file": "mina_map_b4.png" },
+    { "id": "layer-08", "label": "Dungeon 5",        "file": "mina_map_b5.png" },
+    { "id": "layer-09", "label": "Deprived",      "file": "mina_map_deprived.png" }
+  ]
+}
